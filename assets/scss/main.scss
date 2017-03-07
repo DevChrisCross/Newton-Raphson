@@ -2,14 +2,12 @@ p{
   line-height: 1.5;
   text-align:justify;
 }
+
 .header-wrapper{
   display: flex;
   width: 100%;
   height: 100%;
   border: 2px solid royalblue;
-
-
-
 }
 
 .logo-header{
@@ -30,7 +28,6 @@ p{
   background-color: #285153;
   align-items: center;
   justify-content: space-around;
-
 }
 
 a{
@@ -60,12 +57,13 @@ a{
   flex-direction: column;
   color: #ffffff;
   background-color: #285153;
+
   & h1 {
     width: 30%;
     text-align: center;
     font-family: "Verdana";
-
   }
+
   & p {
     width: 70%;
     text-align: center;
@@ -82,7 +80,6 @@ a{
       color: #4d7dff;
       background-color: #ffffff;
     }
-
   }
 }
 
