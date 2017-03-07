@@ -1,0 +1,234 @@
+p{
+  line-height: 1.5;
+  text-align:justify;
+}
+.header-wrapper{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 2px solid royalblue;
+
+
+
+}
+
+.logo-header{
+  width: 20%;
+  height: 90px;
+  display: flex;
+  background-color: #f5fcfb;
+  color: #285153;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+}
+
+.nav-wrapper {
+  width: 80%;
+  height: 95px;
+  display: flex;
+  background-color: #285153;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+a{
+  &:link{
+    color: #f8fdfc; background-color:transparent; text-decoration:none
+  }
+
+  &:visited{
+    color: #6ebada; background-color:transparent; text-decoration:none
+  }
+
+  &:hover{
+    color: #6ebada; background-color:transparent; text-decoration:none
+  }
+
+  &:active{
+    color: #6ebada; background-color:transparent; text-decoration:none
+  }
+}
+
+.banner {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  background-color: #285153;
+  & h1 {
+    width: 30%;
+    text-align: center;
+    font-family: "Verdana";
+
+  }
+  & p {
+    width: 70%;
+    text-align: center;
+  }
+
+  & button {
+    border: none;
+    border-radius: 60px;
+    width: 200px;
+    height: 50px;
+    color: #ffffff;
+    background-color: #4d7dff;
+    &:hover {
+      color: #4d7dff;
+      background-color: #ffffff;
+    }
+
+  }
+}
+
+.article-wrapper{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: 100px;
+  width: 100%;
+  height: 600px;
+}
+
+.article-column-left{
+  flex-basis: 500%;
+  width: 35%;
+  padding: 0px 20px 0px 20px;
+
+  & span{
+    text-align: center;
+    color:#6ebada;
+    font:30px Lucida Calligraphy;
+  }
+
+  & p{
+    text-align: justify;
+    color: #556c72;
+  }
+}
+
+.article-column-right{
+
+  flex-basis: 500%;
+  width: 35%;
+  padding: 0px 20px 0px 20px;
+
+  & span{
+    text-align: center;
+    color:#6ebada;
+    font:30px Lucida Calligraphy;
+  }
+
+  & p{
+    text-align: justify;
+    color: #556c72;
+  }
+}
+
+.content-wrapper{
+  background-color: #e6ecfd;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper-upper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+  padding: 100px 50px 40px 50px;
+}
+
+.content-upper{
+  width: 30%;
+  height:200px;
+  padding-left: 50px;
+
+  & span{
+    font: 40px Tahoma;
+    text-align: center;
+  }
+
+  & p{
+    text-align: justify;
+    color: #556c72;
+  }
+}
+
+.content-wrapper-lower{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+  padding: 40px 0px 100px 40px;
+}
+
+.content-lower{
+  width: 30%;
+  height:200px;
+  padding-right: 50px;
+
+  & span{
+    font: 40px Tahoma;
+    text-align: center;
+  }
+
+  & p{
+    text-align: justify;
+    color: #556c72;
+  }
+}
+
+.message{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #00c9ff;
+  width: 100%;
+  height: 350px;
+  flex-direction: column;
+
+  & p{
+    color: white;
+  }
+
+  & button{
+    color: white;
+    background-color: #4d7dff;
+    border-top: none;
+    border-left: none;
+    border-bottom: 10px solid #285153;
+    border-right: 10px solid #285153;
+    width: 190px;
+    height: 50px;
+    margin-bottom: 50px;
+
+    &:hover{
+      color: white;
+      background-color: #ee2178;
+      border: none;
+      width: 180px;
+      height: 40px;
+      margin-top: 10px;
+
+
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
