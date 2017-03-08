@@ -10,8 +10,10 @@
         templateUrl: "app/infographics/infographics.template.html",
         controller: infoGraphicsController,
         controllerAs: "infoVm"
-    })
-    .component("computationTable", {
+    });
+
+    angular.module("newtonraphson")
+        .component("computationTable", {
         templateUrl: "app/computation/computation.template.html",
         controller: computationController,
         controllerAs: "computeVm"
@@ -19,8 +21,8 @@
 
     configuration.$inject = ["$urlRouterProvider", "$stateProvider"];
     function configuration  ( $urlRouterProvider ,  $stateProvider ) {
-        $urlRouterProvider.otherwise("/");
-
+        //$urlRouterProvider.otherwise("/");
+        /*
         $stateProvider
             .state("landingPage", {
                 abstract: true,
@@ -32,6 +34,7 @@
                 url: "/compute",
                 template: "<computation-table></computation-table>"
             });
+            */
     }
 
     run.$inject = [];
