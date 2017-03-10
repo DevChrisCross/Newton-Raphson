@@ -8,25 +8,31 @@ READ CHANGELOG
 <----Observe DRY: Do Not Repeat Yourself
 <----PREVENT AND AVOID FROM USING INLINE CSS
 */
-.article-wrapper {
+.article-wrapper{
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   padding-top: 100px;
   width: 100%;
-  height: 600px; }
+  height: 600px;
+}
 
-.article-column {
+.article-column{
   flex-basis: 500%;
   width: 35%;
-  padding: 0 20px 0 20px; }
-  .article-column > span {
+  padding: 0 20px 0 20px;
+
+  & > span{
     text-align: center;
-    color: #6ebada;
-    font: 30px Lucida Calligraphy; }
-  .article-column > p {
+    color:#6ebada;
+    font: 30px Lucida Calligraphy;
+  }
+
+  & > p{
     text-align: justify;
-    color: #556c72; }
+    color: #556c72;
+  }
+}
 
 .banner {
   width: 100%;
@@ -36,59 +42,83 @@ READ CHANGELOG
   align-items: center;
   flex-direction: column;
   color: #ffffff;
-  background-color: #285153; }
-  .banner > h1 {
+  background-color: #285153;
+
+  & > h1 {
     width: 30%;
     text-align: center;
-    font-family: "Verdana"; }
-  .banner > p {
+    font-family: "Verdana";
+  }
+
+  & > p {
     width: 70%;
-    text-align: center; }
-  .banner > button {
+    text-align: center;
+  }
+
+  & > button {
     border: none;
     border-radius: 60px;
     width: 200px;
     height: 50px;
     color: #ffffff;
-    background-color: #4d7dff; }
-    .banner > button:hover {
-      color: #4d7dff;
-      background-color: #ffffff; }
+    background-color: #4d7dff;
 
-.content-wrapper {
+    &:hover {
+      color: #4d7dff;
+      background-color: #ffffff;
+    }
+  }
+}
+
+.content-wrapper{
   background-color: #e6ecfd;
   display: flex;
-  flex-direction: column; }
-  .content-wrapper > .content-wrapper-upper:first-child {
-    margin: 100px 50px 40px 50px; }
-  .content-wrapper > .content-wrapper-upper:nth-child(2) {
-    margin: 40px 0 100px 40px; }
+  flex-direction: column;
 
-.content-wrapper-upper {
+  & > .content-wrapper-upper{
+    &:first-child{
+      margin: 100px 50px 40px 50px;
+    }
+
+    &:nth-child(2){
+      margin: 40px 0 100px 40px;
+    }
+  }
+}
+
+.content-wrapper-upper{
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80%; }
+  height: 80%;
+}
 
-.content-upper {
+.content-upper{
   width: 30%;
   height: 200px;
-  padding-left: 50px; }
-  .content-upper > span {
-    font: 40px Tahoma;
-    text-align: center; }
-  .content-upper > p {
-    text-align: justify;
-    color: #556c72; }
+  padding-left: 50px;
 
-.header-wrapper {
+  & > span{
+    font: 40px Tahoma;
+    text-align: center;
+  }
+
+  & > p{
+    text-align: justify;
+    color: #556c72;
+  }
+}
+
+
+.header-wrapper{
   display: flex;
   width: 100%;
   height: 80px;
-  border: 2px solid royalblue; }
+  border: 2px solid royalblue;
+}
 
-.logo-header {
+.logo-header{
   width: 20%;
   height: 90px;
   display: flex;
@@ -96,19 +126,23 @@ READ CHANGELOG
   color: #285153;
   align-items: center;
   justify-content: center;
-  font-size: 35px; }
+  font-size: 35px;
+}
 
-.message {
+.message{
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: #00c9ff;
   width: 100%;
   height: 350px;
-  flex-direction: column; }
-  .message > p {
-    color: white; }
-  .message > button {
+  flex-direction: column;
+
+  & > p{
+    color: white;
+  }
+
+  & > button{
     color: white;
     background-color: #4d7dff;
     border-top: none;
@@ -117,14 +151,19 @@ READ CHANGELOG
     border-right: 10px solid #285153;
     width: 190px;
     height: 50px;
-    margin-bottom: 50px; }
-    .message > button:hover {
+    margin-bottom: 50px;
+
+    &:hover{
       color: white;
       background-color: #ee2178;
       border: none;
       width: 180px;
       height: 40px;
-      margin-top: 10px; }
+      margin-top: 10px;
+    }
+  }
+}
+
 
 .nav-wrapper {
   width: 80%;
@@ -132,14 +171,32 @@ READ CHANGELOG
   display: flex;
   background-color: #285153;
   align-items: center;
-  justify-content: space-around; }
-  .nav-wrapper > a:link {
-    color: #f8fdfc;
-    background-color: transparent;
-    text-decoration: none; }
-  .nav-wrapper > a:visited, .nav-wrapper > a:hover, .nav-wrapper > a:active {
-    color: #6ebada;
-    background-color: transparent;
-    text-decoration: none; }
+  justify-content: space-around;
 
-/*# sourceMappingURL=main.css.map */
+  & > a{
+    &:link{
+      color: #f8fdfc;
+      background-color: transparent;
+      text-decoration: none
+    }
+
+    &:visited,
+    &:hover,
+    &:active{
+      color: #6ebada;
+      background-color: transparent;
+      text-decoration: none
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

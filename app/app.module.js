@@ -2,19 +2,39 @@
     "use strict";
 
     angular.module("newtonraphson", [
-
+        "ui.router"
     ])
     .config(configuration)
     .run(run)
-    .component("mainComponent", {
-        templateUrl: "app/app.html",
-        controller: mainController,
-        controllerAs: "nr"
+    .component("infoGraphics", {
+        templateUrl: "app/infographics/infographics.template.html",
+        controller: infoGraphicsController,
+        controllerAs: "infoVm"
     });
 
-    configuration.$inject = [];
-    function configuration() {
+    angular.module("newtonraphson")
+        .component("computationTable", {
+        templateUrl: "app/computation/computation.template.html",
+        controller: computationController,
+        controllerAs: "computeVm"
+    });
 
+    configuration.$inject = ["$urlRouterProvider", "$stateProvider"];
+    function configuration  ( $urlRouterProvider ,  $stateProvider ) {
+        //$urlRouterProvider.otherwise("/");
+        /*
+        $stateProvider
+            .state("landingPage", {
+                abstract: true,
+                url: "/",
+                template: "<info-graphics></info-graphics>"
+            })
+            .state("computation", {
+                abstract: true,
+                url: "/compute",
+                template: "<computation-table></computation-table>"
+            });
+            */
     }
 
     run.$inject = [];
@@ -22,8 +42,13 @@
 
     }
 
-    mainController.$inject = [];
-    function mainController() {
+    infoGraphicsController.$inject = [];
+    function infoGraphicsController() {
+
+    }
+
+    computationController.$inject = [];
+    function computationController() {
         let self = this;
         self.radians = radians;
         self.roundOff = roundOff;
@@ -49,19 +74,25 @@
             let initialOfX = self.initialGuess;
 
             // func = parser.eval('e'); console.log(func);
-            for(let i=0;i<self.iteration;i++) {
+            for( let i = 0; i < self.iteration; i++ ) {
+
                 // convert angle to radian
                 let rad = self.radians(initialOfX);
+
                 // f(x)
                 func = self.equationInput.replace(/x/gi, initialOfX);
                 func = parser.eval(func);
+
                 // Derivative of f(x)
                 deriOfX = math.derivative(self.equationInput,'x');
+
                 // initializing value of x
                 funcDeri = deriOfX.toString().replace(/x/gi, rad);
                 funcDeri = parser.eval(funcDeri);
+
                 // NRM
                 answer = parser.eval(initialOfX + '+' + func + '/' + '1');
+
                 // Display
                 console.log('f(x) = '+self.roundOff(func));
                 console.log("f'(x) = "+self.roundOff(funcDeri));
