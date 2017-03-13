@@ -44,7 +44,7 @@
 
     infoGraphicsController.$inject = [];
     function infoGraphicsController() {
-
+        AOS.init();
     }
 
     computationController.$inject = [];
