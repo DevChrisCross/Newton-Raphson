@@ -2,6 +2,7 @@
     "use strict";
 
     angular.module("newtonraphson", [
+        "duScroll",
         "ui.router"
     ])
     .config(configuration)
@@ -45,6 +46,14 @@
     infoGraphicsController.$inject = [];
     function infoGraphicsController() {
         AOS.init();
+        let self = this;
+        self.container = angular.element(document.getElementById('container'));
+
+        (function init() {
+            self.alias = ["Descon", "Marbeyn", "Ronron", "DonJons", "Natsu", "Diego", "Quasar"];
+            self.members = ["Pilapil, Marvin M.", "Bustillo, Ron Jessel T.", "Hara, Paul Nicol", "Adriano, Jonas C.", "Madrinan, Kathleen B.", "Cruz, Daryl P.", "Molina, Christian Noel C."];
+        })();
+
     }
 
     computationController.$inject = [];
@@ -70,12 +79,41 @@
 
         function nrm() {
             let parser = math.parser();
-            let answer,func,deriOfX,funcDeri;
-            let initialOfX = self.initialGuess;
+            let table = [];
+            let obj = {
+                initialOfX: self.initialGuess,
+                rad: rad,
+                func: func,
+                funcDeri: funcDeri,
+                deriOfX: deriOfX,
+                answer: answer
+            };
 
-            // func = parser.eval('e'); console.log(func);
-            for( let i = 0; i < self.iteration; i++ ) {
+            let i = 0;
+            let approx = [];
 
+            // convert angle to radian
+            obj.rad = self.radians(obj.initialOfX);
+
+            // f(x)
+            obj.func = self.equationInput.replace(/x/gi, obj.initialOfX);
+            obj.func = parser.eval(obj.func);
+
+            // Derivative of f(x)
+            obj.deriOfX = math.derivative(self.equationInput,'x');
+
+            // initializing value of x
+            obj.funcDeri = obj.deriOfX.toString().replace(/x/gi, obj.rad);
+            obj.funcDeri = parser.eval(obj.funcDeri);
+
+            // NRM
+            obj.answer = parser.eval(obj.initialOfX + '+' + obj.func + '/' + obj.funcDeri);
+
+            table[i] = [];
+            table[i] = table.push(obj);
+            i++;
+
+            do {
                 // convert angle to radian
                 let rad = self.radians(initialOfX);
 
@@ -91,14 +129,18 @@
                 funcDeri = parser.eval(funcDeri);
 
                 // NRM
-                answer = parser.eval(initialOfX + '+' + func + '/' + '1');
+                answer = parser.eval(initialOfX + '+' + func + '/' + funcDeri);
 
-                // Display
-                console.log('f(x) = '+self.roundOff(func));
-                console.log("f'(x) = "+self.roundOff(funcDeri));
-                console.log(self.roundOff(answer));
+                table[i] = [];
+                table[i] = table.push(tempObj);
+
+                approx[i] = (table[i]['initialOfX'] - table[i - 1]['initialOfX']) / table[i]['initialOfX'];
+
                 initialOfX = func;
-            }
+                i++;
+            } while(approx<.01);
+
+
         }
     }
 })();

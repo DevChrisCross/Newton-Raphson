@@ -1,72 +1,82 @@
-<header class="nrm-header">
+<header class="nrm-header" du-scroll-container="container">
     <section class="title">NRM</section>
     <nav>
-        <a href="#top">Home</a>
-        <a href="#middle">Discover Us</a>
-        <a href="#bottom">Start Now</a>
+        <a du-smooth-scroll="home" du-scrollspy>Home</a>
+        <a du-smooth-scroll="info" du-scrollspy>Discover Us</a>
+        <a du-smooth-scroll="start" du-scrollspy>Start Now</a>
     </nav>
 </header>
-<div class="video-bg-container">
-    <video loop muted autoplay>
-        <!--<source src="assets/vids/vdbg1.ogv" type="video/ogg">-->
-        <!--<source src="assets/vids/vdbg1.webm" type="video/webm">-->
-        <source src="assets/img/blurtree.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="banner-bg"></div>
-<div id="top" class="banner">
-    <section class="title">Newton-Raphson Method</section>
-    <p>
-        Newton's method, also called the Newton-Raphson method, is a root-finding algorithm that uses the first few terms of the Taylor series of a function f(x) in the vicinity of a suspected root.
-        Newton's method is sometimes also known as Newton's iteration, although in this work the latter term is reserved to the application of Newton's method for computing square roots.
-    </p>
-    <button>Discover Us</button>
-</div>
-<div class="parallax-divider"></div>
-<div class="parallax author"></div>
-<div class="parallax-divider"></div>
-<section class="nrm-information">
-    <div class="content-wrapper" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-        <img src="assets/img/newton2.jpg" alt="a photo of Isaac Newton"/>
-        <div class="content">
-            <header class="content-header">Isaac Newton</header>
-            <p>Isaac Newton is considered one of the most important scientists in history. During his lifetime Newton developed the theory of gravity, the laws of motion, a new type of mathematics called calculus, and made breakthroughs in the area of optics such as the reflecting telescope.</p>
-        </div>
+<section id="container" du-scroll-container>
+    <nav class="slider-nav">
+        <div class="slider-item"></div>
+        <div class="slider-item"></div>
+        <div class="slider-item"></div>
+        <div class="slider-item"></div>
+    </nav>
+    <div class="video-bg-container">
+        <video loop muted autoplay>
+            <!--<source src="assets/vids/vdbg1.ogv" type="video/ogg">-->
+            <!--<source src="assets/vids/vdbg1.webm" type="video/webm">-->
+            <source src="assets/img/blurtree.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <div class="content-wrapper" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-        <img src="assets/img/raphson.jpg" alt="a photo of Joseph Raphson"/>
-        <div class="content">
-            <header class="content-header">Joseph Raphson</header>
-            <p>
-                Raphson's most notable work is Analysis Aequationum Universalis, which was published in 1690 that contains a method, now known as the Newton–Raphson method, for approximating the roots of an equation.
-                Raphson's version of the method is simpler than Newton's, and for this reason it is Raphson's version of the method, rather than Newton's, that is to be found in textbooks today.
-            </p>
-        </div>
+    <div class="banner-bg"></div>
+    <div id="home" class="banner">
+        <section class="title" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="0" data-aos-once="true">Newton-Raphson's Method</section>
+        <p data-aos="fade-down" data-aos-duration="1000" data-aos-delay="500" data-aos-once="true">
+            Newton's method, also called the Newton-Raphson method, is a root-finding algorithm that uses the first few terms of the Taylor series of a function f(x) in the vicinity of a suspected root.
+            Newton's method is sometimes also known as Newton's iteration, although in this work the latter term is reserved to the application of Newton's method for computing square roots.
+        </p>
+        <button data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true">Discover Us</button>
     </div>
+    <div class="parallax-divider"></div>
+    <div id="info" class="parallax author">
+        <section>the authors</section>
+    </div>
+    <div class="parallax-divider"></div>
+    <section class="nrm-information">
+        <div class="content-wrapper">
+            <img src="assets/img/newton2.jpg" alt="a photo of Isaac Newton"/>
+            <div class="content">
+                <header class="content-header">Isaac Newton</header>
+                <p>Isaac Newton is considered one of the most important scientists in history. During his lifetime Newton developed the theory of gravity, the laws of motion, a new type of mathematics called calculus, and made breakthroughs in the area of optics such as the reflecting telescope.</p>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <img src="assets/img/raphson.jpg" alt="a photo of Joseph Raphson"/>
+            <div class="content">
+                <header class="content-header">Joseph Raphson</header>
+                <p>
+                    Raphson's most notable work is Analysis Aequationum Universalis, which was published in 1690 that contains a method, now known as the Newton–Raphson method, for approximating the roots of an equation.
+                    Raphson's version of the method is simpler than Newton's, and for this reason it is Raphson's version of the method, rather than Newton's, that is to be found in textbooks today.
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="parallax-divider"></div>
+    <div class="parallax process">
+        <section>the process</section>
+    </div>
+    <div class="parallax-divider"></div>
+    <section class="nrm-process">
+        <section class="process-content">
+
+        </section>
+    </section>
+    <section class="nrm-group">
+        <section class="member" ng-repeat="name in infoVm.members">
+            <img src="">
+            <p>{{}}</p>
+        </section>
+    </section>
+    <footer id="start" class="nrm-footer">
+
+    </footer>
 </section>
-<div class="parallax-divider"></div>
-<div class="parallax process"></div>
-<div class="parallax-divider"></div>
 
 
-
-    <!--<div class="slides-container">-->
-        <!--<div>-->
-            <!--<span>Newton-Raphson Method</span>-->
-        <!--</div>-->
-        <!--<p class="step_1">The idea of the method is as follows:</p>-->
-        <!--<p class="step_2">One starts with an initial guess which is reasonably close to the true root.</p>-->
-        <!--<p class="step_3">Then the function is approximated by its tangent line.</p>-->
-        <!--<button class="prev" onclick="plusSlides(-1)">&#10094;</button>-->
-        <!--<button class="next" onclick="plusSlides(1)">&#10095;</button>-->
-
-
-        <!--<span class="dot" onclick="currentSlide(1)"></span>-->
-        <!--<span class="dot" onclick="currentSlide(2)"></span>-->
-        <!--<span class="dot" onclick="currentSlide(3)"></span>-->
-
-    <!--</div>-->
 
     <!--<div id="bottom" class="message">-->
         <!--<p>Do you want to solve a problem?</p>-->
