@@ -113,32 +113,32 @@
             table[i] = table.push(obj);
             i++;
 
-            do {
-                // convert angle to radian
-                let rad = self.radians(initialOfX);
-
-                // f(x)
-                func = self.equationInput.replace(/x/gi, initialOfX);
-                func = parser.eval(func);
-
-                // Derivative of f(x)
-                deriOfX = math.derivative(self.equationInput,'x');
-
-                // initializing value of x
-                funcDeri = deriOfX.toString().replace(/x/gi, rad);
-                funcDeri = parser.eval(funcDeri);
-
-                // NRM
-                answer = parser.eval(initialOfX + '+' + func + '/' + funcDeri);
-
-                table[i] = [];
-                table[i] = table.push(tempObj);
-
-                approx[i] = (table[i]['initialOfX'] - table[i - 1]['initialOfX']) / table[i]['initialOfX'];
-
-                initialOfX = func;
-                i++;
-            } while(approx<.01);
+            // do {
+            //     // convert angle to radian
+            //     let rad = self.radians(initialOfX);
+            //
+            //     // f(x)
+            //     func = self.equationInput.replace(/x/gi, initialOfX);
+            //     func = parser.eval(func);
+            //
+            //     // Derivative of f(x)
+            //     deriOfX = math.derivative(self.equationInput,'x');
+            //
+            //     // initializing value of x
+            //     funcDeri = deriOfX.toString().replace(/x/gi, rad);
+            //     funcDeri = parser.eval(funcDeri);
+            //
+            //     // NRM
+            //     answer = parser.eval(initialOfX + '+' + func + '/' + funcDeri);
+            //
+            //     table[i] = [];
+            //     table[i] = table.push(tempObj);
+            //
+            //     approx[i] = (table[i]['initialOfX'] - table[i - 1]['initialOfX']) / table[i]['initialOfX'];
+            //
+            //     initialOfX = func;
+            //     i++;
+            // } while(approx<.01);
 
 
         }
