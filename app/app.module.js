@@ -11,10 +11,11 @@
         templateUrl: "app/infographics/infographics.template.html",
         controller: infoGraphicsController,
         controllerAs: "infoVm"
-    });
-
-    angular.module("newtonraphson")
-        .component("computationTable", {
+    })
+    .value('duScrollDuration', 1500)
+    .value('duScrollOffset', 80)
+    .value('duScrollBottomSpy', true)
+    .component("computationTable", {
         templateUrl: "app/computation/computation.template.html",
         controller: computationController,
         controllerAs: "computeVm"
@@ -47,13 +48,23 @@
     function infoGraphicsController() {
         AOS.init();
         let self = this;
-        self.container = angular.element(document.getElementById('container'));
+        self.setSection = setSection;
+        self.isSection = isSection;
 
         (function init() {
+            self.currentSection = 'home';
             self.alias = ["Descon", "Marbeyn", "Ronron", "DonJons", "Natsu", "Diego", "Quasar"];
             self.members = ["Pilapil, Marvin M.", "Bustillo, Ron Jessel T.", "Hara, Paul Nicol", "Adriano, Jonas C.", "Madrinan, Kathleen B.", "Cruz, Daryl P.", "Molina, Christian Noel C."];
         })();
 
+        function setSection(string) {
+            self.currentSection = string;
+        }
+
+        function isSection(string) {
+            console.log(self.currentSection === string);
+            return self.currentSection === string;
+        }
     }
 
     computationController.$inject = [];

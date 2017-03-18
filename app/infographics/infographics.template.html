@@ -6,13 +6,17 @@
         <a du-smooth-scroll="start" du-scrollspy>Start Now</a>
     </nav>
 </header>
-<section id="container" du-scroll-container>
+<aside du-scroll-container="container">
     <nav class="slider-nav">
-        <div class="slider-item"></div>
-        <div class="slider-item"></div>
-        <div class="slider-item"></div>
-        <div class="slider-item"></div>
+        <div class="slider-item" du-smooth-scroll="home" ng-click="infoVm.setSection('home')" ng-class="{'active':infoVm.isSection('home')}"></div>
+        <div class="slider-item" du-smooth-scroll="info" ng-click="infoVm.setSection('info')" ng-class="{'active':infoVm.isSection('info')}"></div>
+        <div class="slider-item" du-smooth-scroll="process" ng-click="infoVm.setSection('process')" ng-class="{'active':infoVm.isSection('process')}"></div>
+        <div class="slider-item" du-smooth-scroll="group" ng-click="infoVm.setSection('group')" ng-class="{'active':infoVm.isSection('group')}"></div>
+        <div class="slider-item" du-smooth-scroll="start" ng-click="infoVm.setSection('start')" ng-class="{'active':infoVm.isSection('start')}"></div>
     </nav>
+</aside>
+
+<section id="container" du-scroll-container>
     <div class="video-bg-container">
         <video loop muted autoplay>
             <!--<source src="assets/vids/vdbg1.ogv" type="video/ogg">-->
@@ -28,7 +32,7 @@
             Newton's method, also called the Newton-Raphson method, is a root-finding algorithm that uses the first few terms of the Taylor series of a function f(x) in the vicinity of a suspected root.
             Newton's method is sometimes also known as Newton's iteration, although in this work the latter term is reserved to the application of Newton's method for computing square roots.
         </p>
-        <button data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true">Discover Us</button>
+        <button>Discover Us</button>
     </div>
     <div class="parallax-divider"></div>
     <div id="info" class="parallax author">
@@ -36,15 +40,15 @@
     </div>
     <div class="parallax-divider"></div>
     <section class="nrm-information">
-        <div class="content-wrapper">
+        <article class="content-wrapper">
             <img src="assets/img/newton2.jpg" alt="a photo of Isaac Newton"/>
             <div class="content">
                 <header class="content-header">Isaac Newton</header>
                 <p>Isaac Newton is considered one of the most important scientists in history. During his lifetime Newton developed the theory of gravity, the laws of motion, a new type of mathematics called calculus, and made breakthroughs in the area of optics such as the reflecting telescope.</p>
             </div>
-        </div>
+        </article>
 
-        <div class="content-wrapper">
+        <article class="content-wrapper">
             <img src="assets/img/raphson.jpg" alt="a photo of Joseph Raphson"/>
             <div class="content">
                 <header class="content-header">Joseph Raphson</header>
@@ -53,36 +57,37 @@
                     Raphson's version of the method is simpler than Newton's, and for this reason it is Raphson's version of the method, rather than Newton's, that is to be found in textbooks today.
                 </p>
             </div>
-        </div>
+        </article>
     </section>
     <div class="parallax-divider"></div>
-    <div class="parallax process">
+    <div id="process" class="parallax process">
         <section>the process</section>
     </div>
     <div class="parallax-divider"></div>
     <section class="nrm-process">
-        <section class="process-content">
+        <article class="process-content">
             <p>The idea of the method is as follows: one starts with an initial guess which is reasonably close to the true root,
                 then the function is approximated by its tangent line, which can be computed using the tools of calculus, and one
                 computes the x-intercept of this tangent line, which is easily done with elementary algebra.
                 This x-intercept will typically be a better approximation to the function's root than the original guess, and the method
                 can be iterated.</p>
-            <p>
-                Suppose \(f:[a,b] \rightarrow \mathbb{R}\) is a differentiable function defined on the interval \([a,b]\) with values in the real numbers \(\mathbb{R}\).
-                The formula for converging on the root can be easily derived. Suppose we have some current approximation \(x_n\).  Then we can derive the formula for a better approximation,
-                \(x_{n+1}\) by referring to the diagram on the right. The equation of the tangent line to the curve \(y={f(x)}\) at the point \(x=x_n\) is $$y = {f'(x_n)(x-x_n)+f(x_n)},$$
-                where \(f'\) denotes the derivative of the function \(f\).
-                The \(x\)-intercept of this line (the value of \(x\) such that \(y=0\) is then used as the next approximation to the root, \(x_{n+1}\). In other words, setting \(y\) to zero and \(x\)
-                to \(x_{n+1}\) gives $$0 = {f'(x_n)(x_{n+1}-x_n)+f(x_n)}$$. Solving for \(x_{n+1}\) gives $$x_{n+1} = { x_n - \frac{f(x_n)}{f'(x_n)} }$$.
-            </p>
-            <span>
-                The function \(f\) is shown in blue and the tangent line is in red. We see that \(x_{n+1}\) is a better approximation than \(x_n\) for the root \(x\) of the function \(f\).
-
-            </span>
-            <img src="assets/img/NewtonIteration.gif">
-        </section>
+            <section>
+                <p>
+                    Suppose \(f:[a,b] \rightarrow \mathbb{R}\) is a differentiable function defined on the interval \([a,b]\) with values in the real numbers \(\mathbb{R}\).
+                    The formula for converging on the root can be easily derived. Suppose we have some current approximation \(x_n\).  Then we can derive the formula for a better approximation,
+                    \(x_{n+1}\) by referring to the diagram on the right. The equation of the tangent line to the curve \(y={f(x)}\) at the point \(x=x_n\) is $$y = {f'(x_n)(x-x_n)+f(x_n)},$$
+                    where \(f'\) denotes the derivative of the function \(f\).
+                    The \(x\)-intercept of this line (the value of \(x\) such that \(y=0\) is then used as the next approximation to the root, \(x_{n+1}\). In other words, setting \(y\) to zero and \(x\)
+                    to \(x_{n+1}\) gives $$0 = {f'(x_n)(x_{n+1}-x_n)+f(x_n)}$$. Solving for \(x_{n+1}\) gives $$x_{n+1} = { x_n - \frac{f(x_n)}{f'(x_n)} }.$$.
+                </p>
+                <aside>
+                    <img src="assets/img/NewtonIteration.gif">
+                    <span>The function \(f\) is shown in blue and the tangent line is in red. We see that \(x_{n+1}\) is a better approximation than \(x_n\) for the root \(x\) of the function \(f.\)</span>
+                </aside>
+            </section>
+        </article>
     </section>
-    <section class="nrm-group">
+    <section id="group" class="nrm-group">
         <section class="member" ng-repeat="name in infoVm.members">
             <img src="">
             <p>{{}}</p>
