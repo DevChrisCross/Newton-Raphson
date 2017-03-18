@@ -108,37 +108,36 @@
 
             // NRM
             obj.answer = parser.eval(obj.initialOfX + '+' + obj.func + '/' + obj.funcDeri);
-
-            table[i] = [];
             table[i] = table.push(obj);
             i++;
+            let holder =  obj.func;
 
-            // do {
-            //     // convert angle to radian
-            //     let rad = self.radians(initialOfX);
-            //
-            //     // f(x)
-            //     func = self.equationInput.replace(/x/gi, initialOfX);
-            //     func = parser.eval(func);
-            //
-            //     // Derivative of f(x)
-            //     deriOfX = math.derivative(self.equationInput,'x');
-            //
-            //     // initializing value of x
-            //     funcDeri = deriOfX.toString().replace(/x/gi, rad);
-            //     funcDeri = parser.eval(funcDeri);
-            //
-            //     // NRM
-            //     answer = parser.eval(initialOfX + '+' + func + '/' + funcDeri);
-            //
-            //     table[i] = [];
-            //     table[i] = table.push(tempObj);
-            //
-            //     approx[i] = (table[i]['initialOfX'] - table[i - 1]['initialOfX']) / table[i]['initialOfX'];
-            //
-            //     initialOfX = func;
-            //     i++;
-            // } while(approx<.01);
+            do {
+                obj = {};
+                obj.initialOfX = holder;
+                // convert angle to radian
+                obj.rad = self.radians(obj.initialOfX);
+
+                // f(x)
+                obj.func = self.equationInput.replace(/x/gi, obj.initialOfX);
+                obj.func = parser.eval(obj.func);
+
+                // Derivative of f(x)
+                obj.deriOfX = math.derivative(self.equationInput,'x');
+
+                // initializing value of x
+                obj.funcDeri = deriOfX.toString().replace(/x/gi, obj.rad);
+                obj.funcDeri = parser.eval(obj.funcDeri);
+
+                // NRM
+                obj.answer = parser.eval(obj.initialOfX + '+' + obj.func + '/' + obj.funcDeri);
+
+                table[i] = table.push(obj);
+                obj.approx = (table[i]['initialOfX'] - table[i - 1]['initialOfX']) / table[i]['initialOfX'];
+
+                holder = func;
+                i++;
+            } while(approx<.01);
 
 
         }
