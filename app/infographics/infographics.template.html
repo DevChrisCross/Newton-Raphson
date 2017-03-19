@@ -11,7 +11,6 @@
         <div class="slider-item" du-smooth-scroll="home" ng-click="infoVm.setSection('home')" ng-class="{'active':infoVm.isSection('home')}"></div>
         <div class="slider-item" du-smooth-scroll="info" ng-click="infoVm.setSection('info')" ng-class="{'active':infoVm.isSection('info')}"></div>
         <div class="slider-item" du-smooth-scroll="process" ng-click="infoVm.setSection('process')" ng-class="{'active':infoVm.isSection('process')}"></div>
-        <div class="slider-item" du-smooth-scroll="group" ng-click="infoVm.setSection('group')" ng-class="{'active':infoVm.isSection('group')}"></div>
         <div class="slider-item" du-smooth-scroll="start" ng-click="infoVm.setSection('start')" ng-class="{'active':infoVm.isSection('start')}"></div>
     </nav>
 </aside>
@@ -88,15 +87,22 @@
         </article>
     </section>
     <section id="group" class="nrm-group">
-        <section class="member" ng-repeat="name in infoVm.members">
-            <img src="">
-            <p>{{}}</p>
+        <section class="member" ng-repeat="member in infoVm.members">
+            <img ng-src="assets/img/{{member.photoRef}}.png">
+            <div>
+                <span>{{member.alias}}</span>
+                <span>{{member.name}}</span>
+            </div>
+        </section>
+        <section class="title">
+            meet the company
         </section>
     </section>
     <footer id="start" class="nrm-footer">
         <p>
             This algorithm is first in the class of Householder's methods, succeeded by Halley's method. The method can also be extended to complex functions and to systems of equations.
-            Newton's method is an extremely powerful technique—in general the convergence is quadratic: as the method converges on the root, the difference between the root and the approximation is squared (the number of accurate digits roughly doubles) at each step.
+            Newton's method is an extremely powerful technique—in general the convergence is quadratic: as the method converges on the root, the difference between the root and the
+            approximation is squared, the number of accurate digits roughly doubles, at each step.
         </p>
         <button class="button3d">Start</button>
     </footer>

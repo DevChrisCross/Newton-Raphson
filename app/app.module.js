@@ -53,8 +53,43 @@
 
         (function init() {
             self.currentSection = 'home';
-            self.alias = ["Descon", "Marbeyn", "Ronron", "DonJons", "Natsu", "Diego", "Quasar"];
-            self.members = ["Pilapil, Marvin M.", "Bustillo, Ron Jessel T.", "Hara, Paul Nicol", "Adriano, Jonas C.", "Madrinan, Kathleen B.", "Cruz, Daryl P.", "Molina, Christian Noel C."];
+            self.members = [
+                {
+                    photoRef: "paul",
+                    alias: "Descon",
+                    name: "Hara, Paul Nicol"
+                },
+                {
+                    photoRef: "marvin",
+                    alias: "Marbeyn",
+                    name: "Pilapil, Marvin M."
+                },
+                {
+                    photoRef: "ron",
+                    alias: "Ronron",
+                    name: "Bustillo, Ron Jessel T."
+                },
+                {
+                    photoRef: "jonas",
+                    alias: "DonJons",
+                    name: "Adriano, Jonas C."
+                },
+                {
+                    photoRef: "kathleen",
+                    alias: "Natsu",
+                    name: "Madrinan, Kathleen B."
+                },
+                {
+                    photoRef: "daryl",
+                    alias: "Diego",
+                    name: "Cruz, Daryl P."
+                },
+                {
+                    photoRef: "christian",
+                    alias: "Quasar",
+                    name: "Molina, Christian Noel C."
+                },
+            ];
         })();
 
         function setSection(string) {

@@ -214,18 +214,68 @@
 
 .nrm-group {
   display: flex;
-  background-color: white; }
+  background-color: #007393;
+  justify-content: space-around;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.2);
+  padding: 5px 0 10px 0;
+  flex-wrap: wrap; }
   .nrm-group > .member {
-    height: 100px;
-    box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.2);
-    flex-basis: 100%; }
+    position: relative; }
+    .nrm-group > .member:hover > img {
+      filter: blur(0px) grayscale(50%) brightness(120%) contrast(125%);
+      box-shadow: 0 0 black;
+      bottom: -9px;
+      right: -9px;
+      top: 9px;
+      left: 9px; }
+    .nrm-group > .member:hover > div {
+      opacity: 0; }
+    .nrm-group > .member > img {
+      height: 250px;
+      flex-basis: 215px;
+      box-shadow: 1px 1px #202020, 3px 3px #202020, 5px 5px #202020, 7px 7px #202020, 9px 9px #202020;
+      filter: blur(1.5px) grayscale(100%) brightness(100%) contrast(75%);
+      border-radius: 5px;
+      background-color: turquoise;
+      position: relative;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: 0.5s ease all; }
+    .nrm-group > .member > div {
+      color: white;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 180px;
+      text-align: center;
+      width: 100%;
+      justify-content: center;
+      line-height: 23px;
+      transition: 0.5s ease all; }
+      .nrm-group > .member > div > span:first-child {
+        font-size: 23px; }
+      .nrm-group > .member > div > span:last-child {
+        font-size: 13px; }
+  .nrm-group > .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: bold;
+    font-family: RalewaySemiBold;
+    color: white;
+    text-decoration: underline;
+    margin-top: 30px; }
 
 .nrm-footer {
   background-color: #007393;
   display: flex;
   flex-direction: column;
   color: #ebebeb;
-  padding: 100px 300px;
+  padding: 35px 300px;
   align-items: center; }
 
 .button3d {
@@ -249,10 +299,12 @@
     bottom: -9px;
     right: -9px;
     top: 9px;
-    left: 9px; }
+    left: 9px;
+    background-color: #d4004b; }
 
 #container {
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100vh; }
 
 p {
