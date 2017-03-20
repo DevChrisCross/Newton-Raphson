@@ -10,6 +10,15 @@
 @font-face {
   font-family: RalewaySemiBold;
   src: url("../fonts/Raleway-SemiBold.ttf"); }
+@font-face {
+  font-family: OswaldRegular;
+  src: url("../fonts/Oswald-Regular.ttf"); }
+@font-face {
+  font-family: OswaldLight;
+  src: url("../fonts/Oswald-Light.ttf"); }
+@font-face {
+  font-family: OswaldMedium;
+  src: url("../fonts/Oswald-Medium.ttf"); }
 @keyframes slide-down {
   from {
     top: -100%; }
@@ -20,6 +29,36 @@
     opacity: 0; }
   100% {
     opacity: 1; } }
+.connection {
+  background-color: red;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -999;
+  opacity: 0; }
+  .connection.active {
+    opacity: 1;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white; }
+  .connection > h1 {
+    font-size: 70px;
+    letter-spacing: -3px;
+    color: #4bc3ff;
+    margin: 5px 0; }
+  .connection > p {
+    font-size: 20px;
+    width: 900px;
+    text-align: center;
+    text-indent: 0; }
+
 .nrm-header {
   display: flex;
   width: 100%;
@@ -37,12 +76,21 @@
     justify-content: center;
     font-size: 30px;
     font-weight: bold;
-    letter-spacing: 2px; }
+    letter-spacing: 2px;
+    transition: background-color 1s ease, color 1s ease, width 1s ease; }
+    .nrm-header > .title.active {
+      background-color: #76cdcd;
+      cursor: pointer;
+      width: 100%; }
+      .nrm-header > .title.active:hover {
+        color: #f5ffff;
+        background-color: #093e4d; }
   .nrm-header > nav {
     width: 630px;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto; }
+    margin: 0 auto;
+    transition: width 1s ease; }
     .nrm-header > nav > a {
       color: #f8fdfc;
       cursor: pointer;
@@ -53,6 +101,8 @@
       transition: 0.5s ease all; }
       .nrm-header > nav > a:hover, .nrm-header > nav > a.active {
         color: #0093ff; }
+    .nrm-header > nav.disabled {
+      width: 0; }
 
 .banner-bg {
   position: absolute;
@@ -105,7 +155,11 @@
   top: 80px;
   z-index: -100;
   height: 680px;
-  filter: hue-rotate(80deg); }
+  filter: hue-rotate(80deg);
+  transition: 1s ease all; }
+  .video-bg-container.disabled {
+    height: 0;
+    opacity: 0; }
 
 .parallax {
   background-attachment: fixed;
@@ -143,6 +197,8 @@
     cursor: pointer; }
     .slider-nav > .slider-item.active {
       background-color: #0093ff; }
+  .slider-nav.disabled {
+    opacity: 0; }
 
 .nrm-information {
   background-color: white;
@@ -305,7 +361,72 @@
 #container {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 100vh; }
+  height: 100vh;
+  transition: height 1s ease; }
+  #container.disabled {
+    overflow: hidden;
+    height: 0; }
+
+#equationTex {
+  min-height: 85px;
+  width: 100%;
+  font-size: 25px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center; }
+
+.computation {
+  background-color: white;
+  margin-top: 0;
+  height: 0;
+  overflow: scroll;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  transition: 1s ease all; }
+  .computation.active {
+    height: 90vh;
+    margin-top: 80px; }
+  .computation > .input-area-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column; }
+    .computation > .input-area-wrapper > section {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .computation > .input-area-wrapper > section.input-text {
+        padding: 0 30px; }
+        .computation > .input-area-wrapper > section.input-text > input {
+          padding: 7.5px;
+          border-radius: 3px;
+          border: 1px solid #999;
+          background-color: #fdfdfd;
+          margin-top: 15px;
+          position: relative;
+          margin-right: 10px; }
+          .computation > .input-area-wrapper > section.input-text > input:first-child {
+            width: 670px; }
+          .computation > .input-area-wrapper > section.input-text > input:nth-child(2) {
+            width: 150px; }
+        .computation > .input-area-wrapper > section.input-text > button {
+          margin: 0; }
+
+.table-row {
+  display: flex;
+  padding: 10px;
+  font-family: Arial;
+  border-bottom: 1px solid #b9b9b9; }
+  .table-row > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 19%; }
+    .table-row > section:first-child {
+      width: 5%; }
 
 p {
   line-height: 1.5em;

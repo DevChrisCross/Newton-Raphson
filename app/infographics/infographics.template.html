@@ -1,22 +1,21 @@
+<section class="connection" ng-class="{'active': infoVm.disconnected}">
+    <h1>You're not connected to a network.</h1>
+    <p>The web application cannot be displayed because your computer isn't connected to the Internet. Please check your Internet connection and try again.</p>
+</section>
 <header class="nrm-header" du-scroll-container="container">
-    <section class="title">NRM</section>
-    <nav>
-        <a du-smooth-scroll="home" du-scrollspy>Home</a>
-        <a du-smooth-scroll="info" du-scrollspy>Discover Us</a>
-        <a du-smooth-scroll="start" du-scrollspy>Start Now</a>
+    <section class="title" ng-class="{'active':infoVm.start}" ng-click="infoVm.start = false">NRM</section>
+    <nav ng-class="{'disabled':infoVm.start}">
+        <a ng-repeat="navItem in infoVm.navMenu" du-smooth-scroll="{{navItem.link}}" du-scrollspy>{{navItem.name}}</a>
     </nav>
 </header>
-<aside du-scroll-container="container">
-    <nav class="slider-nav">
+<section id="container" du-scroll-container ng-class="{'disabled':infoVm.start}">
+    <nav class="slider-nav" ng-class="{'disabled':infoVm.start}">
         <div class="slider-item" du-smooth-scroll="home" ng-click="infoVm.setSection('home')" ng-class="{'active':infoVm.isSection('home')}"></div>
         <div class="slider-item" du-smooth-scroll="info" ng-click="infoVm.setSection('info')" ng-class="{'active':infoVm.isSection('info')}"></div>
         <div class="slider-item" du-smooth-scroll="process" ng-click="infoVm.setSection('process')" ng-class="{'active':infoVm.isSection('process')}"></div>
         <div class="slider-item" du-smooth-scroll="start" ng-click="infoVm.setSection('start')" ng-class="{'active':infoVm.isSection('start')}"></div>
     </nav>
-</aside>
-
-<section id="container" du-scroll-container>
-    <div class="video-bg-container">
+    <div class="video-bg-container" ng-class="{'disabled':infoVm.start}">
         <video loop muted autoplay>
             <!--<source src="assets/vids/vdbg1.ogv" type="video/ogg">-->
             <!--<source src="assets/vids/vdbg1.webm" type="video/webm">-->
@@ -104,6 +103,46 @@
             Newton's method is an extremely powerful technique—in general the convergence is quadratic: as the method converges on the root, the difference between the root and the
             approximation is squared, the number of accurate digits roughly doubles, at each step.
         </p>
-        <button class="button3d">Start</button>
+        <button class="button3d" ng-click="infoVm.startApp()">Start</button>
     </footer>
+</section>
+
+<section class="computation" ng-class="{'active':infoVm.start}">
+    <section class="input-area-wrapper">
+        <section class="input-text">
+            <input type="text" ng-model="infoVm.equation" ng-change="infoVm.displayEquation()">
+            <input type="number" step="any" ng-model="infoVm.initialX">
+            <button class="button3d" ng-click="infoVm.computeEquation()">Compute</button>
+        </section>
+        <section id="equationTex">$$f(x)=$$</section>
+        <section class="display-text">
+            <section id="initialPlot"></section>
+            <section id="finalPlot"></section>
+        </section>
+    </section>
+    <!--<section class="right">-->
+        <!--<section></section>-->
+        <!--<section></section>-->
+        <!--<section></section>-->
+    <!--</section>-->
+    <section class="computation-header">
+        <section class="table-row">
+            <section class="header">$$i$$</section>
+            <section class="header">$$x$$</section>
+            <section class="header">$$f(x)$$</section>
+            <section class="header">$$f'(x)$$</section>
+            <section class="header">$$x_{i+1}$$</section>
+            <section class="header">$$E_a$$</section>
+        </section>
+    </section>
+    <section class="computation-table">
+        <section class="table-row" ng-repeat="data in infoVm.nrmData.table">
+            <section>{{data.iteration}}</section>
+            <section>{{data.valueX}}</section>
+            <section>{{data.functionX}}</section>
+            <section>{{data.derivativeX}}</section>
+            <section>{{data.valueXPlusOne}}</section>
+            <section>{{data.approxError}}</section>
+        </section>
+    </section>
 </section>
